@@ -29,7 +29,7 @@ def test_signup_and_delete_account(driver):
 
     signup_login_page = SignupLoginPage(driver)
     signup_login_page.enter_name("Test Name")
-    signup_login_page.enter_email("denislinec12@gmail.com")
+    signup_login_page.enter_email("denislinec13@gmail.com")
     signup_login_page.click_signup()
     time.sleep(7)
 

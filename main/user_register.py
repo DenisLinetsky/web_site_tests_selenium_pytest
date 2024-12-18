@@ -30,7 +30,7 @@ try:
     name_input.send_keys("Test Name")
     email_input = driver.find_element(By.CSS_SELECTOR, '[data-qa="signup-email"]')
     email_input.click()
-    email_input.send_keys("denislinec3@gmail.com")
+    email_input.send_keys("denislinec13@gmail.com")
 
     # Click 'Signup' button
     signup_button = driver.find_element(By.XPATH, '//button[text()="Signup"]')
@@ -85,15 +85,18 @@ try:
     continue_button = driver.find_element(By.XPATH, '//a[text()="Continue"]')
     continue_button.click()
 
+
     # Click 'Delete Account' button
-    delete_account_button = driver.find_element(By.LINK_TEXT, 'Delete Account')
-    delete_account_button.click()
+    # delete_account_button = driver.find_element(By.LINK_TEXT, 'Delete Account')
+    # delete_account_button.click()
 
     # Click 'Continue' button on confirmation page
-    continue_button_confirm = driver.find_element(By.XPATH, '//a[text()="Continue"]')
-    time.sleep(7)
-    continue_button_confirm.click()
+    # continue_button_confirm = driver.find_element(By.XPATH, '//a[text()="Continue"]')
+    # time.sleep(7)
+    # continue_button_confirm.click()
+
 
 finally:
     # Close the browser
     driver.quit()
+
