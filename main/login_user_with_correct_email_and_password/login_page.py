@@ -29,3 +29,6 @@ class LoginPage(BasePage):
 
     def verify_account_deleted(self):
         return self.wait_for_element(self.ACCOUNT_DELETED).is_displayed()
+
+    def verify_error_message(self):
+        pass
