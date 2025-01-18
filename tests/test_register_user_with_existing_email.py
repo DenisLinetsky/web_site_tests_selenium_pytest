@@ -21,13 +21,11 @@ def driver():
 
 @pytest.mark.special
 def test_existing_email_signup(driver):
-    home_page = HomePage(driver)
-    signup_page = SignupLoginPage(driver)
 
-    # Step 1: Launch browser and navigate to the URL
+    # Launch browser and navigate to the URL
     driver.get("http://automationexercise.com")
 
-    # Step 2: Verify home page is visible
+    # Verify home page is visible
     assert driver.title == "Automation Exercise"
 
     home_page = HomePage(driver)
@@ -39,5 +37,5 @@ def test_existing_email_signup(driver):
     signup_login_page.enter_email("denislinec13@gmail.com")
     signup_login_page.click_signup()
 
-    # Step 7: Verify error 'Email Address already exist!' is visible
+    # Verify error 'Email Address already exist!' is visible
     assert signup_login_page.is_error_message_visible()
