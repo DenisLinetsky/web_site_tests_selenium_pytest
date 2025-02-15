@@ -1,22 +1,6 @@
-import time
 import pytest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-
-from main.register_user import signup_login_page
 from main.register_user.home_page import HomePage
 from main.register_user.signup_login_page import SignupLoginPage
-
-@pytest.fixture(scope="module")
-def driver():
-    chrome_driver_path = r"C:/Users/denis/Downloads/chromedriver-win64/chromedriver.exe"
-    chrome_options = Options()
-    chrome_options.add_argument("--start-maximized")
-    chrome_options.add_argument("--disable-infobars")
-    driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
-    yield driver
-    driver.quit()
 
 
 @pytest.mark.special
