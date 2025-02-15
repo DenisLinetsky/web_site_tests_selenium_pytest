@@ -1,22 +1,8 @@
-from selenium.webdriver.chrome import webdriver
 from main.login_user_with_correct_email_and_password.home_page import HomePage
 from main.login_user_with_correct_email_and_password.login_page import LoginPage
 from main.login_user_with_incorrect_email_and_password.invalid_login_page import LoginPage
-
 import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.chrome.options import Options
 
-@pytest.fixture(scope="module")
-def driver():
-    chrome_driver_path = r"C:/Users/denis/Downloads/chromedriver-win64/chromedriver.exe"
-    chrome_options = Options()
-    chrome_options.add_argument("--start-maximized")
-    chrome_options.add_argument("--disable-infobars")
-    driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
-    yield driver
-    driver.quit()
 
 @pytest.mark.special
 def test_invalid_login(driver):

@@ -1,24 +1,9 @@
 import time
-
 import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-
 from main.login_user_with_correct_email_and_password.home_page import HomePage
 from main.login_user_with_correct_email_and_password.login_page import LoginPage
 
-@pytest.fixture(scope="module")
-def driver():
-    chrome_driver_path = r"C:/Users/denis/Downloads/chromedriver-win64/chromedriver.exe"
-    chrome_options = Options()
-    chrome_options.add_argument("--start-maximized")
-    chrome_options.add_argument("--disable-infobars")
-    driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
-    yield driver
-    driver.quit()
-
-@pytest.mark.create
 def test_login_and_delete_account(driver):
     home_page = HomePage(driver)
     login_page = LoginPage(driver)
@@ -54,3 +39,4 @@ def test_login_and_delete_account(driver):
     continue_button_confirm.click()
 
     driver.quit()
+
