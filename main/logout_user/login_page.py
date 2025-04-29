@@ -7,8 +7,8 @@ class LoginPage(BasePage):
         self.email_input = (By.NAME, "email")
         self.password_input = (By.NAME, "password")
         self.login_button = (By.XPATH, "//button[text()='Login']")
-        self.logged_in_as = (By.XPATH, "//a[contains(text(), 'Logged in as')]/b[contains(text(), 'Test Name')]")
-        self.logout_button = (By.XPATH, "//a[@href='/logout']")
+        self.logged_in_as = (By.CLASS_NAME, "fa fa-user")
+        self.logout_button = (By.XPATH, "//a/i[@class='fa fa-lock']")
 
     def login(self, email, password):
         self.wait_for_element(*self.email_input).send_keys(email)

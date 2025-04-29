@@ -1,25 +1,30 @@
 import time
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
-# Path to the newly downloaded ChromeDriver
-chrome_driver_path = r"C:/Users/denis/Downloads/chromedriver-win64/chromedriver.exe"
-
 # Set up Chrome options
+"""
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")  # Start browser maximized
 chrome_options.add_argument("--disable-infobars")  # Disable infobars
-#hrome_options.add_argument("--incognito")  # Open browser in incognito mode
+chrome_options.add_argument("--no-sandbox")  # Required for Docker
+chrome_options.add_argument("--headless")  # Run in headless mode
+chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
+"""
 
 # Initialize ChromeDriver with options
-driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
+path_to_driver = r"C:/Users/denis/Downloads/chromedriver-win64/chromedriver.exe"
+chrome_options = Options()
+chrome_options.add_argument("--start-maximized")
+
+driver = webdriver.Chrome(executable_path=path_to_driver, options=chrome_options)
+
 
 try:
     # Open URL: http://automationexercise.com
     driver.get("http://automationexercise.com")
+    driver.maximize_window()
 
     # Click on 'Signup / Login' button
     signup_login_button = driver.find_element(By.LINK_TEXT, 'Signup / Login')
@@ -84,19 +89,8 @@ try:
     # Click 'Continue' button
     continue_button = driver.find_element(By.XPATH, '//a[text()="Continue"]')
     continue_button.click()
-
-
-    # Click 'Delete Account' button
-    # delete_account_button = driver.find_element(By.LINK_TEXT, 'Delete Account')
-    # delete_account_button.click()
-
-    # Click 'Continue' button on confirmation page
-    # continue_button_confirm = driver.find_element(By.XPATH, '//a[text()="Continue"]')
-    # time.sleep(7)
-    # continue_button_confirm.click()
-
-
 finally:
     # Close the browser
     driver.quit()
+
 

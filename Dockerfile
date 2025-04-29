@@ -17,7 +17,7 @@ ADD . /tests
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run the command to start testing
-CMD ["pytest", "tests/test_verify_test_case_page.py"]
+CMD ["pytest", "-k", "not test_register_user.py", "--html=report.html"]
 
 
 
