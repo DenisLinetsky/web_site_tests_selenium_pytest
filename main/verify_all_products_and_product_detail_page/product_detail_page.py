@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-# from main.user_register import driver
+
 
 class ProductDetailPage:
     def __init__(self, driver):
@@ -14,8 +14,5 @@ class ProductDetailPage:
     def verify_product_details(self):
         self.driver.find_element(By.XPATH, "//div[@class='product-information']")
         return True
-        #  detail in self.details:
-            # if not self.driver.find_elements(By.XPATH, f"//b[text()='{detail}']"):
-                # return False
-        # return True
+
 

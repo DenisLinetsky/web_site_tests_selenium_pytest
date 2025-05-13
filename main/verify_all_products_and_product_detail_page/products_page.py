@@ -6,7 +6,7 @@ class ProductsPage:
         self.driver = driver
         self.url = "https://automationexercise.com/products"  # Define URL
         self.driver.get(self.url)
-        self.view_product_button = (By.XPATH, "(//a[text()='View Product'])[1]")  # Correct XPath
+        self.view_product_button = (By.XPATH, "(//a[text()='View Product'])[1]")
 
     def open(self):
         self.driver.get(self.url)  # Use instance variable
@@ -15,5 +15,5 @@ class ProductsPage:
         return len(self.driver.find_elements(By.CLASS_NAME, "features_items")) > 0
 
     def click_first_product(self):
-        self.driver.find_element(*self.view_product_button).click()  # Correct usage
+        self.driver.find_element(*self.view_product_button).click()
 
