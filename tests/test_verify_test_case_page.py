@@ -12,7 +12,3 @@ def test_verify_test_case_page(driver):
     home_page.verify_home_page()
     home_page.click_test_cases()
     test_cases_page.verify_test_cases_page()
-
-
-
-

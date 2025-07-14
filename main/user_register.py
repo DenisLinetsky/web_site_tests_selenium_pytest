@@ -1,7 +1,15 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+options = webdriver.ChromeOptions()
+options.add_argument("--start-maximized")
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+
 
 # Set up Chrome options
 """
@@ -12,14 +20,6 @@ chrome_options.add_argument("--no-sandbox")  # Required for Docker
 chrome_options.add_argument("--headless")  # Run in headless mode
 chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
 """
-
-# Initialize ChromeDriver with options
-path_to_driver = r"C:/Users/denis/Downloads/chromedriver-win64/chromedriver.exe"
-chrome_options = Options()
-chrome_options.add_argument("--start-maximized")
-
-driver = webdriver.Chrome(executable_path=path_to_driver, options=chrome_options)
-
 
 try:
     # Open URL: http://automationexercise.com
